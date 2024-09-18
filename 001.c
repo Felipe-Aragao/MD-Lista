@@ -22,13 +22,13 @@ int primo(int num)
     {
         return 1;
     }
-    else if (num == 0 || num == 1)
+    else if (num <= 1 || num % 2 == 0)
     {
         return 0;
     }
     
-    
-    for (int i = 2; i <= sqrt(num); i++)
+    int raiz = sqrt(num);
+    for (int i = 3; i <= sqrt(num); i += 2)
     {
         if (num % i == 0)
             return 0;
