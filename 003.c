@@ -1,35 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int primo(int num)
-{
-    if (num == 2 || num == 3)
-    {
-        return 1;
-    }
-    else if (num <= 1 || num % 2 == 0)
-    {
-        return 0;
-    }
-    
-    int raiz = sqrt(num);
-    for (int i = 3; i <= sqrt(num); i += 2)
-    {
-        if (num % i == 0)
-            return 0;
-    }
-
-    return 1;
-}
-
-void imprime (int n[], int contador)
-{
-    while (contador  != 0)
-    {
-        printf("%d ", n[contador-1]);
-        contador--;
-    }
-}
+int primo(int num);
+void imprime (int n[], int contador);
 
 int main()
 {
@@ -51,4 +24,34 @@ int main()
     
 
     return 0;
+}
+
+int primo(int num)
+{
+    if (num == 2 || num == 3)
+    {
+        return 1;
+    }
+    else if (num <= 1 || num % 2 == 0)
+    {
+        return 0;
+    }
+    
+    int raiz = sqrt(num);
+    for (int i = 3; i <= raiz; i += 2)
+    {
+        if (num % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+void imprime (int n[], int contador)
+{
+    while (contador  != 0)
+    {
+        printf("%d ", n[contador-1]);
+        contador--;
+    }
 }

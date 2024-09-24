@@ -34,7 +34,7 @@ int primo(int num)
     }
     
     int raiz = sqrt(num);
-    for (int i = 3; i <= sqrt(num); i += 2)
+    for (int i = 3; i <= raiz; i += 2)
     {
         if (num % i == 0)
             return 0;
