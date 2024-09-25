@@ -10,7 +10,6 @@ void inverso (int a, int b, int contador)
 
     if ((a * contador) % b == 1)
     {
-
         printf("%d\n", contador);
         return;
     }

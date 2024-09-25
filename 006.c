@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int euclidesExtendido(int a, int b);
-int euclides (int a, int b);
+int mdc (int a, int b);
 
 int main()
 {
@@ -10,7 +10,7 @@ int main()
 
     int resultado = euclidesExtendido(a, b);
     printf("s = %d\n", resultado);
-    printf("t = %d", ((euclides(a, b) - resultado * a ) / b ));
+    printf("t = %d", ((mdc(a, b) - resultado * a ) / b ));
 }
 
 int euclidesExtendido(int a, int b)
@@ -45,7 +45,7 @@ int euclidesExtendido(int a, int b)
     return s;
 }
 
-int euclides (int a, int b)
+int mdc (int a, int b)
 {
     if (a % b == 0)
     {
@@ -54,5 +54,5 @@ int euclides (int a, int b)
         
         return b;
     }
-    return euclides(b, a % b);
+    return mdc(b, a % b);
 }
