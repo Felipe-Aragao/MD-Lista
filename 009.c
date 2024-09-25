@@ -74,6 +74,10 @@ int main()
     int x[3]; //modulos 
     // m1 = x2*x3 ; m2 = x1*x3 ; m3 = x1*x2
     lerDados(a,x,0,3);
+    if(mdc(x[0],x[1]) == 1 && mdc(x[0],x[2]) == 1 && mdc(x[1],x[2]) == 1)
+    {
+        
+    }
     int m[3];
     m[0] = x[1]*x[2];
     m[1] = x[0]*x[2];
@@ -85,12 +89,15 @@ int main()
     pegarClasses(m,mEquivalencia,mInvertido,x,0,3);
     //soma entre as multiplicacoes de Ai,Mi e MiInvertido;
     int p;
+    p = somaNumeros(a,m,mInvertido,0,0,3);
     // resto entre p e X; X = x1*x2*x3
     int v;
+    v = p % (x[0]*x[1]*x[2]);
     // v + modulo X;
     int r;
-    printf("%d", somaNumeros(a,m,mInvertido,0,0,3));
+    r = v + (x[0]*x[1]*x[2]);
     //so faz isso se Xi forem coprimos
+    printf("%d", r);
 
     return 0;
 }
