@@ -76,28 +76,28 @@ int main()
     lerDados(a,x,0,3);
     if(mdc(x[0],x[1]) == 1 && mdc(x[0],x[2]) == 1 && mdc(x[1],x[2]) == 1)
     {
-        
+        int m[3];
+        m[0] = x[1]*x[2];
+        m[1] = x[0]*x[2];
+        m[2] = x[0]*x[1];
+        // qual numero deixa o mesmo resto na divisao de m1 por x1 ; m2 por x2; m3 por x3
+        int mEquivalencia[3];
+        //botar na funcao inverso para achar a classe inversa; 
+        int mInvertido[3];
+        pegarClasses(m,mEquivalencia,mInvertido,x,0,3);
+        //soma entre as multiplicacoes de Ai,Mi e MiInvertido;
+        int p;
+        p = somaNumeros(a,m,mInvertido,0,0,3);
+        // resto entre p e X; X = x1*x2*x3
+        int v;
+        v = p % (x[0]*x[1]*x[2]);
+        // v + modulo X;
+        int r;
+        r = v + (x[0]*x[1]*x[2]);
+        //so faz isso se Xi forem coprimos
+        printf("%d", r);
     }
-    int m[3];
-    m[0] = x[1]*x[2];
-    m[1] = x[0]*x[2];
-    m[2] = x[0]*x[1];
-    // qual numero deixa o mesmo resto na divisao de m1 por x1 ; m2 por x2; m3 por x3
-    int mEquivalencia[3];
-    //botar na funcao inverso para achar a classe inversa; 
-    int mInvertido[3];
-    pegarClasses(m,mEquivalencia,mInvertido,x,0,3);
-    //soma entre as multiplicacoes de Ai,Mi e MiInvertido;
-    int p;
-    p = somaNumeros(a,m,mInvertido,0,0,3);
-    // resto entre p e X; X = x1*x2*x3
-    int v;
-    v = p % (x[0]*x[1]*x[2]);
-    // v + modulo X;
-    int r;
-    r = v + (x[0]*x[1]*x[2]);
-    //so faz isso se Xi forem coprimos
-    printf("%d", r);
+
 
     return 0;
 }
