@@ -28,6 +28,8 @@ int inverso(int num, int modulo, int contador)
     {
         return contador;
     }
+
+    return inverso(num,modulo,contador+1);
 }
 
 int classesEquivalencia(int m, int x, int i)
@@ -43,6 +45,27 @@ int classesEquivalencia(int m, int x, int i)
     else return classesEquivalencia(-m,-x,i-+1);
 }
 
+void pegarClasses(int m[], int mEquivalencia[],int mInvertido[], int x[], int i, int tamanho)
+{
+    if (i == tamanho) return;
+
+    mEquivalencia[i] = classesEquivalencia(m[i],x[i],1);
+    mInvertido[i] = inverso(mEquivalencia[i],x[i],1);
+
+    pegarClasses(m,mEquivalencia,mInvertido,x,i+1,tamanho);
+}
+
+
+
+int somaNumeros(int a[], int m[], int mInvertido[], int soma, int i, int tamanho)
+{
+    if (i == tamanho) return 0;
+
+    return a[i]*m[i]*mInvertido[i] + somaNumeros(a,m,mInvertido,soma,i+1,tamanho);
+
+    return somaNumeros(a,m,mInvertido,soma,i+1,tamanho);
+}
+
 int main()
 {
     //solucao unica == entre 0 e a multiplicacao dos modulos
@@ -50,6 +73,7 @@ int main()
     int a[3]; // congruencias 
     int x[3]; //modulos 
     // m1 = x2*x3 ; m2 = x1*x3 ; m3 = x1*x2
+    lerDados(a,x,0,3);
     int m[3];
     m[0] = x[1]*x[2];
     m[1] = x[0]*x[2];
@@ -58,14 +82,14 @@ int main()
     int mEquivalencia[3];
     //botar na funcao inverso para achar a classe inversa; 
     int mInvertido[3];
+    pegarClasses(m,mEquivalencia,mInvertido,x,0,3);
     //soma entre as multiplicacoes de Ai,Mi e MiInvertido;
     int p;
     // resto entre p e X; X = x1*x2*x3
     int v;
     // v + modulo X;
     int r;
-    
-    
+    printf("%d", somaNumeros(a,m,mInvertido,0,0,3));
     //so faz isso se Xi forem coprimos
 
     return 0;
