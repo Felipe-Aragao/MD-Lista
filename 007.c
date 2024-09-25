@@ -2,7 +2,6 @@
 
 void inverso (int a, int b, int contador)
 {
-
     if (contador >= b) 
     {
         printf("Sem inverso.\n");
@@ -14,16 +13,13 @@ void inverso (int a, int b, int contador)
 
         printf("%d\n", contador);
         return;
-
     }
 
     inverso(a, b, contador + 1);
-
 }
 
 int main ()
 {
-    
     int a, b;
 
     scanf("%d %d", &a, &b);
