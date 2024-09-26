@@ -1,3 +1,8 @@
+/*
+10. Generalize o programa da questão anterior para funcionar com n congruências ao
+invés de somente 3, onde n será dado pelo usuário.
+*/
+
 #include <stdio.h>
 
 int inverso(int num, int modulo, int contador);

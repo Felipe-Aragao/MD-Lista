@@ -1,3 +1,9 @@
+/*
+2. Escrever um programa para listar números primos sequencialmente. Você deve
+otimizar o programa para que ele liste o maior número possível de primos em 60
+segundos. 
+*/
+
 #include <stdio.h>
 #include <time.h>
 #include <math.h>

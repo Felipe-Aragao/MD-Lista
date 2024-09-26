@@ -1,3 +1,7 @@
+/*
+9. Escrever um programa para encontrar a solução única de três congruências usando
+o Teorema Chinês do Resto. (Lembre-se de verificar se os módulos são coprimos).
+*/
 #include <stdio.h>
 
 void lerDados(int a[], int x[], int i, int tamanho)

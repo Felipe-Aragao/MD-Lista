@@ -1,3 +1,7 @@
+/*
+7. Escrever um programa para encontrar o inverso de a mod b.
+*/
+
 #include <stdio.h>
 
 void inverso (int a, int b, int contador)
