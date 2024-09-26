@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int inverso(int num, int modulo, int contador);
+int mdc (int a, int b);
 
 int main()
 {
@@ -12,7 +13,7 @@ int main()
     int mTotal = 1;
 
     //Entrada do usuário
-    printf("\nA entrada deve ser no formato XmodY\nEx: 3mod5\n\n");
+    printf("\nA entrada deve ser no formato AmodB\nEx: 3mod5\n\n");
     for (int i = 0; i < n; i++)
     {
         printf("%d: ", i + 1);
@@ -25,6 +26,18 @@ int main()
         
         // Encontrar o M
         mTotal *= b[i];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (mdc(b[i], b[j]) != 1)
+            {
+                printf("Os valores de b não são coprimos");
+                return 2;
+            }
+        }
     }
 
     // Encontrar os Mk
@@ -60,4 +73,15 @@ int inverso(int num, int modulo, int contador)
     }
 
     return inverso(num,modulo,contador+1);
+}
+
+int mdc (int a, int b)
+{
+    if (a % b == 0)
+    {
+        if (b < 0)
+            return -b;
+        return b;
+    }
+    return mdc(b, a % b);
 }
