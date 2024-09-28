@@ -17,15 +17,18 @@ int main()
     parada = time(NULL) + segundos;
     
     int num = 0;
+    int i = 0;
 
     while (time(NULL) < parada)
     {
         if (primo(num))
         {
-            printf("%d, ", num);
+            printf("%d ", num);
+            i++;
         }
         num++;
     }
+    printf("\n\nForam listados %d números primos", i);
 }
 
 int primo(int num)

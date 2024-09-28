@@ -11,6 +11,7 @@ int main()
 {
     int ePrimo, num;
 
+    printf("Número: ");
     scanf("%d", &num);
     ePrimo = primo(num);
 
