@@ -16,14 +16,7 @@ int mdc (int a, int b)
 }
 
 int inverso(int a, int b, int modulo, int contador)
-{
-    //se 'a' nao for primo com o modulo, nao tem resposta.
-    //se chegar ate o modulo e nao achar inverso, quer dizer que nao existe.
-    if (mdc(a,modulo) != 1 || contador == modulo)
-    {
-        return 0;
-    }
-
+{  
     if ((a*contador) % modulo == 1)
     {
         //para achar todas as solucoes basta multiplicar o modulo por um contador que va de 0 a K;
@@ -35,7 +28,20 @@ int inverso(int a, int b, int modulo, int contador)
 
 int main()
 {
-    printf("%d", inverso(17,9,276,1));
+    //se o mdc for 1, chama a função
+    int a,b, modulo;
+    scanf("%d%d%d", &a, &b, &modulo)
 
+    //se 'a' igual a modulo-1, o inverso é o proprio a multiplicado por ele mesmo.
+    //se o mdc entre 'a' e 'modulo' for igual a 1, chama a função inverso.
+    if (mdc(a,modulo) == 1 && modulo > 1)
+    {
+        printf("%d", inverso(a,b,modulo,1));
+    }
+    //se 'a' nao for primo com o modulo, nao tem resposta.
+    else
+    {
+        printf("Não possui solução.");
+    }
     return 0;
 }
