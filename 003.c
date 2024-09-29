@@ -10,8 +10,7 @@ fatores primos.
 int main()
 {
     int num;
-    int contador = 0;
-
+    
     printf("Número: ");
     scanf("%d", &num);
     

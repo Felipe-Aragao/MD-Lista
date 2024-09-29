@@ -4,30 +4,32 @@
 
 #include <stdio.h>
 
-void inverso (int a, int b, int contador)
-{
-    if (contador >= b) 
-    {
-        printf("Sem inverso.\n");
-        return;
-    }
-
-    if ((a * contador) % b == 1)
-    {
-        printf("%d\n", contador);
-        return;
-    }
-
-    inverso(a, b, contador + 1);
-}
+void inverso (int a, int b, int contador);
 
 int main ()
 {
     int a, b;
 
-    scanf("%d %d", &a, &b);
+    printf("a: ");
+    scanf("%d", &a);
+    printf("b: ");
+    scanf("%d", &b);
 
     inverso(a, b, 1);
 
     return 0;
+}
+
+void inverso (int a, int b, int contador)
+{
+    for (int contador = 1; contador < b; contador++)
+    {
+        if ((a * contador) % b == 1)
+        {
+            printf("O inverso de %dmod%d é %d\n",a, b, contador);
+            return;
+        }
+    }
+    
+    printf("Sem inverso.\n");
 }

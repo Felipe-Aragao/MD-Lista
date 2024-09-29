@@ -10,8 +10,13 @@ int mdc (int a, int b);
 
 int main()
 {
-    int a = -453;
-    int b = -932;
+    int a;
+    int b;
+
+    printf("Número 1: ");
+    scanf("%d", &a);
+    printf("Número 2: ");
+    scanf("%d", &b);
 
     int resultado = euclidesExtendido(a, b);
     printf("s = %d\n", resultado);

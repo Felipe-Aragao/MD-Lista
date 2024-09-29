@@ -5,9 +5,12 @@ em seus fatores primos.
 
 #include <stdio.h>
 #include <math.h>
+#include <limits.h>
+
+
 
 int primo(int num);
-int multiplicacao(int n[],int i, int tamanho);
+long long multiplicacao(int n[],int i, int tamanho);
 
 int main()
 {
@@ -20,8 +23,10 @@ int main()
 
 
     //array para armazenar os fatores primos, vao sempre receber como tamanho o maior numero;
-    int mmc[num1];
-    int mdc[num1];
+    int raiz1 = sqrt(num1);
+
+    int mmc[raiz1];
+    int mdc[raiz1];
 
     //contador mdc;
     int c1 = 0;
@@ -34,7 +39,7 @@ int main()
         {
             while(num1 % i == 0 || num2 % i ==0)
             {
-                if (num1 % i ==0 && num2 % i == 0)
+                if (num1 % i == 0 && num2 % i == 0)
                 {
                     mdc[c1] = i;
                     c1++;
@@ -55,9 +60,8 @@ int main()
             }
         }
     }
-
-    printf("\nMDC: %d\n", multiplicacao(mdc,0,c1));
-    printf("MMC: %d\n", multiplicacao(mmc,0,c2));
+    printf("\nMDC: %ld\n", multiplicacao(mdc,0,c1));
+    printf("MMC: %lld\n", multiplicacao(mmc,0,c2));
     return 0;
 }
 
@@ -82,16 +86,14 @@ int primo(int num)
     return 1;
 }
 //funcao recebe o array dos fatores primos dos numeros e retorna os valores do mdc ou mmc.
-int multiplicacao(int n[],int i, int tamanho)
+long long multiplicacao(int n[],int i, int tamanho)
 {
-    if (tamanho == i) 
+    long long resultado = 1;
+    for (int i = 0; i != tamanho; i++)
     {
-        if (tamanho == 0) return 1;
-        else return 1;
+        resultado = resultado * n[i];
     }
     
-    return n[i]*multiplicacao(n,i+1,tamanho);
-
-    return multiplicacao(n,i+1,tamanho);
+    return resultado;
 }
 
