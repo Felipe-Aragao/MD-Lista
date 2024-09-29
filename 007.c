@@ -4,32 +4,29 @@
 
 #include <stdio.h>
 
-void inverso (int a, int b, int contador);
-
 int main ()
 {
-    int a, b;
+    long long a, b;
+    long long inverso = 0;
 
     printf("a: ");
-    scanf("%d", &a);
+    scanf("%lld", &a);
     printf("b: ");
-    scanf("%d", &b);
+    scanf("%lld", &b);
 
-    inverso(a, b, 1);
-
-    return 0;
-}
-
-void inverso (int a, int b, int contador)
-{
-    for (int contador = 1; contador < b; contador++)
+    for (long long contador = 1; contador < b; contador++)
     {
-        if ((a * contador) % b == 1)
+        if ((a*contador) % b == 1)
         {
-            printf("O inverso de %dmod%d é %d\n",a, b, contador);
-            return;
+            inverso = contador;
+            printf("O inverso de %lldmod%lld é %lld\n", a,b,inverso);
         }
     }
-    
-    printf("Sem inverso.\n");
+
+    if (inverso == 0)
+    {
+        printf("Não possui inverso,");
+    }
+
+    return 0;
 }
