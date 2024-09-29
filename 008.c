@@ -30,7 +30,7 @@ int main()
 {
     //se o mdc for 1, chama a função
     int a,b, modulo;
-    scanf("%d%d%d", &a, &b, &modulo)
+    scanf("%d%d%d", &a, &b, &modulo);
 
     //se 'a' igual a modulo-1, o inverso é o proprio a multiplicado por ele mesmo.
     //se o mdc entre 'a' e 'modulo' for igual a 1, chama a função inverso.
