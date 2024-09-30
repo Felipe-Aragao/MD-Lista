@@ -5,7 +5,7 @@ invés de somente 3, onde n será dado pelo usuário.
 
 #include <stdio.h>
 
-int inverso(int num, int modulo, int contador);
+long long inverso(int num, int modulo);
 int mdc (int a, int b);
 
 int main()
@@ -13,8 +13,8 @@ int main()
     int n;
     printf("Número congruências lineares: ");
     scanf("%d", &n);
-    int a[n];
-    int b[n];
+    int a[999];
+    int b[999];
     int mTotal = 1;
 
     //Entrada do usuário
@@ -46,38 +46,50 @@ int main()
     }
 
     // Encontrar os Mk
-    int m[n];
-    int y[n];
+    int m[999];
+    int y[999];
     for (int i = 0; i < n; i++)
     {
         m[i] = mTotal / b[i];
-        y[i] = inverso(m[i], b[i], 1);
+        y[i] = inverso(m[i], b[i]);
     }
     
     // Aplicar definição
-    int x = 0;
+    long long x = 0;
     for (int i = 0; i < n; i++)
     {
-        x += a[i] * m[i] * y[i];
+        x += (long long)a[i] * m[i] * y[i];
     }
 
-    printf("\nx = %d", x % mTotal);
+    printf("\nx = %lld", x % mTotal);
     return 0;
 }
 
-int inverso(int num, int modulo, int contador)
+long long inverso(int num, int modulo)
 {
-    if (contador == modulo)
+    int negativo = 0;
+    long long resultado;
+
+    if (num < 0)
     {
-        return 0;
+        negativo = 1;
+        num *= -1;
     }
 
-    if ((num*contador)%modulo == 1)
+    for (long long contador = 1; contador < modulo; contador++)
     {
-        return contador;
+        if ((num *contador) % modulo == 1)
+        {
+            resultado = contador;
+            
+            if (negativo)
+            {
+                resultado = (resultado * -1) + modulo;
+            }
+            
+            return resultado;
+        }
     }
-
-    return inverso(num,modulo,contador+1);
 }
 
 int mdc (int a, int b)
