@@ -20,10 +20,13 @@ int main()
     int negativo = 0;
 
     //inserir primeiro coeficiente
+    printf("a: ");
     scanf("%lld", &a);
     //inserir numero da congruencia
+    printf("b: ");
     scanf("%lld", &b);
     //inserir o modulo n
+    printf("m: ");
     scanf("%lld", &modulo);
 
     if (a < 0)
