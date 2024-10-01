@@ -6,8 +6,8 @@ int mdc (int a, int b);
 int main()
 {
     int n = 3;
-    int a[999];
-    int b[999];
+    int a[n];
+    int b[n];
     int mTotal = 1;
 
     //Entrada do usuário
@@ -18,7 +18,7 @@ int main()
         int input = scanf("%dmod%d", &a[i], &b[i]);
         if (input != 2)
         {
-            printf("Escreva a entrada na forma XmodY");
+            printf("Escreva a entrada na forma AmodB");
             return 1;
         }
         
@@ -39,8 +39,8 @@ int main()
     }
 
     // Encontrar os Mk
-    int m[999];
-    int y[999];
+    int m[n];
+    int y[n];
     for (int i = 0; i < n; i++)
     {
         m[i] = mTotal / b[i];

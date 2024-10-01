@@ -60,7 +60,7 @@ int main()
             }
         }
     }
-    printf("\nMDC: %ld\n", multiplicacao(mdc,0,c1));
+    printf("\nMDC: %lld\n", multiplicacao(mdc,0,c1));
     printf("MMC: %lld\n", multiplicacao(mmc,0,c2));
     return 0;
 }
